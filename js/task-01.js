@@ -1,10 +1,7 @@
-let numberOfCategories = 0;
-const listWithId = document.querySelector('#categories');
-const countCategory = listWithId.querySelectorAll('.item');
-console.log('Number of categorees:', countCategory.length);
-countCategory.forEach(category => { 
+const itemRef = document.querySelectorAll('.item');
+console.log('Number of categorees:', itemRef.length);
+itemRef.forEach(category => { 
     console.log('Category:', category.firstElementChild.textContent);
-    const elements = category.getElementsByTagName('li');
-    console.log('Elements:', elements.length);
+    console.log('Elements:', category.children[1].children.length);
 })
 

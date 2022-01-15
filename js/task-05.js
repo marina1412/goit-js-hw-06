@@ -1,10 +1,10 @@
-const textInput = document.getElementById('name-input');
-const textOutput = document.getElementById('name-output');
+const textInputRef = document.getElementById('name-input');
+const textOutputRef = document.getElementById('name-output');
+const defaultName = 'Anonymous';
 
-textInput.addEventListener('input', (event) => { 
-    if (event.currentTarget.value !== '') {
-        textOutput.textContent = event.currentTarget.value;
-    } else {
-        textOutput.textContent = 'Anonymous';
+textInputRef.addEventListener('input', (event) => { 
+textOutputRef.textContent = event.currentTarget.value;
+    if (event.currentTarget.value === '') {
+        textOutputRef.textContent = defaultName;
     }
 })
