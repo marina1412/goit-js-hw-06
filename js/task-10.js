@@ -5,7 +5,6 @@ const inputValueRef = document.querySelector('input');
 const size = 20;
 
 const createBoxes = (amount) => {
- amount = inputValueRef.value;
   for (let i = 1; i <= amount; i += 1) { 
   const divEl = document.createElement('div');
   divEl.style.width = size + i*10 + 'px';
@@ -16,7 +15,6 @@ const createBoxes = (amount) => {
 }
 
 const destroyBoxes = (amount) => {
-  amount = inputValueRef.value;
   for (let i = 1; i <= amount; i += 1) { 
     const child = boxesRef.firstElementChild;
     child.remove();
@@ -25,8 +23,12 @@ const destroyBoxes = (amount) => {
 }
 }
 
-btnCreateRef.addEventListener('click', createBoxes);
-btnDestroyRef.addEventListener('click', destroyBoxes);
+btnCreateRef.addEventListener('click', () => {
+  createBoxes(inputValueRef.value);
+})
+btnDestroyRef.addEventListener('click', () => {
+  destroyBoxes(inputValueRef.value);
+});
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
