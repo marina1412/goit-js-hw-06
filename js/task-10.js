@@ -18,17 +18,13 @@ const createBoxes = (amount) => {
 }
 
 const destroyBoxes = () => {
-  while (boxesRef.firstChild) {
-    boxesRef.removeChild(boxesRef.firstChild);
-  }
+  boxesRef.innerHTML = '';
 }
 
 btnCreateRef.addEventListener('click', () => {
   createBoxes(inputValueRef.value);
 })
-btnDestroyRef.addEventListener('click', () => {
-  destroyBoxes();
-});
+btnDestroyRef.addEventListener('click',destroyBoxes);
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
